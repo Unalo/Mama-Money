@@ -41,20 +41,20 @@ public class CreatingNodes implements Comparable <CreatingNodes>{
                 '}';
     }
 
-    public static String addNodes(CreatingNodes node) {
-        if (nodeList.contains(node)) {
-            return "Node already exist in the list";
-        } else {
-            nodeList.add(node);
-        }
-        return "Node added successfully";
-    }
+//    public static String addNodes(CreatingNodes node) {
+//        if (nodeList.contains(node)) {
+//            return "Node already exist in the list";
+//        } else {
+//            nodeList.add(node);
+//        }
+//        return "Node added successfully";
+//    }
 
-    public static List sortingList() {
-        Collections.sort(CreatingNodes.nodeList);
-        System.out.println(nodeList);
-        return nodeList;
-    }
+//    public static List sortingList() {
+//        Collections.sort(CreatingNodes.nodeList);
+//        System.out.println(nodeList);
+//        return nodeList;
+//    }
 
     @Override
     public int compareTo(CreatingNodes o) {
@@ -65,19 +65,19 @@ public class CreatingNodes implements Comparable <CreatingNodes>{
       return this.modeLabel.compareTo(o.getModeLabel());
     }
 
-    public static List treeNode() {
-        for (int i = 0; i < nodeList.size() ; i++) {
-            for (int j = 1; j < nodeList.size() ; j++) {
-                if (nodeList.get(i).getIdentity() == nodeList.get(j).parentIdentity) {
-                    if (parentNodes.contains(nodeList.get(i))) {
-                        continue;
-                    }
-                    System.out.println(nodeList.get(i));
-                    parentNodes.add(nodeList.get(i));
-                }
-            }
-        }
-        return parentNodes;
-    }
+//    public static List treeNode() {
+//        for (int i = 0; i < nodeList.size() ; i++) {
+//            for (int j = 1; j < nodeList.size() ; j++) {
+//                if (nodeList.get(i).getIdentity() == nodeList.get(j).parentIdentity) {
+//                    if (parentNodes.contains(nodeList.get(i))) {
+//                        continue;
+//                    }
+//                    System.out.println(nodeList.get(i));
+//                    parentNodes.add(nodeList.get(i));
+//                }
+//            }
+//        }
+//        return parentNodes;
+//    }
 }
 
