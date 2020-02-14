@@ -4,17 +4,16 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class CreatingNodes implements Comparable <CreatingNodes>{
+public class CreatingNode implements Comparable <CreatingNode>{
 
-    int identity;
-    int parentIdentity;
-    String modeLabel;
-   public static List<CreatingNodes> nodeList = new ArrayList< CreatingNodes>();
-   public static List<CreatingNodes> parentNodes = new ArrayList< CreatingNodes>();
-   public static List<CreatingNodes> childNodes = new ArrayList< CreatingNodes>();
+    private int identity;
+    private int parentIdentity;
+    private String modeLabel;
+//    List<CreatingNodes> nodeList = new ArrayList< CreatingNodes>();
+//    List<CreatingNodes> parentNodes = new ArrayList< CreatingNodes>();
+    List<CreatingNode> childNodes = new ArrayList< CreatingNode>();
 
-
-    public CreatingNodes (int id, int parentID, String label) {
+    public CreatingNode (int id, int parentID, String label) {
         identity = id;
         parentIdentity =parentID;
         modeLabel = label;
@@ -32,12 +31,24 @@ public class CreatingNodes implements Comparable <CreatingNodes>{
         return this.modeLabel;
     }
 
+//    @Override
+//    public String toString() {
+//        return "{" +
+//                "id: " + identity +
+//                ", parentId: " + parentIdentity +
+//                ", label: '" + modeLabel + '\'' +
+//                '}';
+//    }
+
     @Override
     public String toString() {
-        return "{" +
-                "id: " + identity +
-                ", parentId: " + parentIdentity +
-                ", label: '" + modeLabel + '\'' +
+        return "CreatingNodes{" +
+                "identity=" + identity +
+                ", parentIdentity=" + parentIdentity +
+                ", modeLabel='" + modeLabel + '\'' +
+//                ", nodeList=" + nodeList +
+//                ", parentNodes=" + parentNodes +
+                ", childNodes=" + childNodes +
                 '}';
     }
 
@@ -57,12 +68,16 @@ public class CreatingNodes implements Comparable <CreatingNodes>{
 //    }
 
     @Override
-    public int compareTo(CreatingNodes o) {
+    public int compareTo(CreatingNode o) {
         if (this.getParentIdentity() == o.getIdentity()) {
             System.out.println();
             return o.getIdentity() - this.getParentIdentity();
         }
       return this.modeLabel.compareTo(o.getModeLabel());
+    }
+
+    public void addChild(CreatingNode currentChildNode) {
+        childNodes.add(currentChildNode);
     }
 
 //    public static List treeNode() {
