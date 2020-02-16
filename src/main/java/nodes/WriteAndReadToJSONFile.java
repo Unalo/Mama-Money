@@ -12,9 +12,9 @@ import java.io.PrintWriter;
 
 public class WriteAndReadToJSONFile {
     public static void main(String[] args) {
-//        FileReader reader = new FileReader("NodesTree.json")
         JSONParser jsonParser = new JSONParser();
-        try  {
+        try (FileReader reader = new FileReader("NodesTree.json"))
+        {
             JSONObject jsonObject = new JSONObject();
             JSONArray jsonArray = new JSONArray();
             Node nodeB = new Node(7, 7000,"nodeB");
@@ -38,8 +38,14 @@ public class WriteAndReadToJSONFile {
 
             pw.flush();
             pw.close();
-//            Object object = jsonParser.parse(reader);
+            Object object = jsonParser.parse(reader);
+            JSONArray jsonArray1 = (JSONArray) object;
+            jsonArray.forEach(list -> {
+                System.out.println(list.toString());
+            } );
         } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException | ParseException e) {
             e.printStackTrace();
         }
     }
