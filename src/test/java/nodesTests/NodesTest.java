@@ -94,18 +94,18 @@ public class NodesTest {
         addingNodes.addNodes(nodeF);
         //AddingNodes.sortingList();
 
-        assertEquals(addingNodes.getParentNodes().toString(), "[{id: 7000, parentId: 0, label: 'nodeA'}, {id: 7000, parentId: 1, label: 'nodeF'}]");
+        assertEquals(addingNodes.getParentNodes().toString(), "[node { identity: 7000, parentIdentity 0, modeLabel 'nodeA', childNodes [] }, node { identity: 800, parentIdentity 0, modeLabel 'nodeE', childNodes [] }]");
     }
 
     @Test
     public void shouldGetAllChildNodes() {
 
         Node nodeB = new Node(7, 7000,"nodeB");
-        Node nodeC = new Node(0, 123, "nodes.NodeC");
+        Node nodeC = new Node(45, 123, "nodes.NodeC");
         Node nodeA = new Node(7000, 0,"nodeA");
         Node nodeD = new Node(12, 7000,"nodeD");
         Node nodeE = new Node(800, 0,"nodeE");
-        Node nodeF = new Node(700, 1,"nodeF");
+        Node nodeF = new Node(70, 12,"nodeF");
         AddingNodes addingNodes = new AddingNodes();
         addingNodes.addNodes(nodeB);
         addingNodes.addNodes(nodeC);
@@ -114,14 +114,14 @@ public class NodesTest {
         addingNodes.addNodes(nodeE);
         addingNodes.addNodes(nodeF);
 
-        assertEquals(addingNodes.getChildNodes().toString(), "[{id: 7, parentId: 7000, label: 'nodeB'}, {id: 12, parentId: 7000, label: 'nodeD'}, {id: 800, parentId: 0, label: 'nodeE'}]");
+        assertEquals(addingNodes.getChildNodes().toString(), "[CreatingNodes{identity=7, parentIdentity=7000, modeLabel='nodeB', childNodes=[]}, CreatingNodes{identity=45, parentIdentity=123, modeLabel='nodes.NodeC', childNodes=[]}, CreatingNodes{identity=12, parentIdentity=7000, modeLabel='nodeD', childNodes=[]}, CreatingNodes{identity=70, parentIdentity=12, modeLabel='nodeF', childNodes=[]}]");
     }
 
     @Test
     public void shouldMapNodes() {
 
         Node nodeB = new Node(7, 7000,"nodeB");
-        Node nodeC = new Node(80, 123, "nodes.NodeC");
+        Node nodeC = new Node(80, 123, "NodeC");
         Node nodeA = new Node(7000, 0,"nodeA");
         Node nodeD = new Node(12, 7000,"nodeD");
         Node nodeE = new Node(800, 0,"nodeE");
@@ -139,6 +139,6 @@ public class NodesTest {
         for (CreatingNode node: addingNodes.mappingNodes()){
             System.out.println(node);
         }
-        assertEquals(addingNodes.mappingNodes(), "[{id: 7, parentId: 7000, label: 'nodeB'}, {id: 12, parentId: 7000, label: 'nodeD'}, {id: 800, parentId: 0, label: 'nodeE'}]");
+        assertEquals(addingNodes.mappingNodes().toString(), "[node { identity: 7000, parentIdentity 0, modeLabel 'nodeA', childNodes [node { identity: 7, parentIdentity 7000, modeLabel 'nodeB', childNodes [] }, node { identity: 12, parentIdentity 7000, modeLabel 'nodeD', childNodes [] }, node { identity: 7, parentIdentity 7000, modeLabel 'nodeB', childNodes [] }, node { identity: 12, parentIdentity 7000, modeLabel 'nodeD', childNodes [] }, node { identity: 7, parentIdentity 7000, modeLabel 'nodeB', childNodes [] }, node { identity: 12, parentIdentity 7000, modeLabel 'nodeD', childNodes [] }, node { identity: 7, parentIdentity 7000, modeLabel 'nodeB', childNodes [] }, node { identity: 12, parentIdentity 7000, modeLabel 'nodeD', childNodes [] }] }, node { identity: 800, parentIdentity 0, modeLabel 'nodeE', childNodes [node { identity: 70, parentIdentity 800, modeLabel 'nodeF', childNodes [] }, node { identity: 70, parentIdentity 800, modeLabel 'nodeF', childNodes [] }, node { identity: 70, parentIdentity 800, modeLabel 'nodeF', childNodes [] }, node { identity: 70, parentIdentity 800, modeLabel 'nodeF', childNodes [] }] }]");
     }
 }

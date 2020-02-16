@@ -25,55 +25,34 @@ public class AddingNodes  {
 
     public List getParentNodes() {
         for (int i = 0; i < nodeList.size() ; i++) {
-//            for (int j = 1; j < nodeList.size() ; j++) {
             CreatingNode currentNode = nodeList.get(i);
             if (currentNode.getParentIdentity() == 0) {
-//                    if (parentNodes.contains(nodeList.get(i))) {
-//                        continue;
-//                    }
-                    System.out.println(currentNode);
                     parentNodes.add(currentNode);
-//                    System.out.println( "nantsi" + nodeList.toString());
                     mapping.put(currentNode.getIdentity(), currentNode);
-                }
-//            }
+            }
         }
         return parentNodes;
     }
 
     public  List getChildNodes () {
-//        for (int i = 0; i <nodeList.size() ; i++) {
             for (int j = 0; j < nodeList.size() ; j++) {
                 if (nodeList.get(j).getParentIdentity() != 0) {
-//                    if (childNodes.contains(nodeList.get(j))) {
-//                        continue;
-//                    }
                     childNodes.add(nodeList.get(j));
                 }
             }
-//        }
-        System.out.println(childNodes);
         return childNodes;
     }
 
     public  List<CreatingNode> mappingNodes() {
         int count = 0;
-//        System.out.println("parents " + parentNodesis);
-        System.out.println("child " + childNodes.size());
-//        System.out.println("---------");
-//        System.out.println(mapping);
         while (count < childNodes.size()) {
-//            for (int i = 0; i < parentNodes.size() ; i++) {
-//                CreatingNodes parentNode = parentNodes.get(i);
                 for (int j = 0; j < childNodes.size(); j++) {
                     CreatingNode currentChildNode = childNodes.get(j);
                     // boolean val = parentNode.getIdentity() == currentChildNode.getParentIdentity();
-
                     CreatingNode parentNode = mapping.get(currentChildNode.getParentIdentity());
-
+                    System.out.println(mapping.get(currentChildNode.getIdentity()));
 //                    System.out.println(val + " i: " + i + " => " + parentNode.getIdentity() + " | " + currentChildNode.getParentIdentity());
                     if (parentNode != null) {
-//                        System.out.println("Phakathi");
                         parentNode.addChild(currentChildNode);
                         mapping.put(currentChildNode.getIdentity(), currentChildNode);
                         count++;
@@ -81,8 +60,11 @@ public class AddingNodes  {
                         continue;
                 }
             }
-//        }
         System.out.println("count  " + count);
         return parentNodes;
     }
+
+//    public String printTree(List <CreatingNode> nodes) {
+//
+//    }
 }
