@@ -1,4 +1,5 @@
 # Mama-Money
+[![Build Status](https://travis-ci.org/Unalo/Mama-Money.svg?branch=master)](https://travis-ci.org/Unalo/Mama-Money)
 ## About 
 - Printing hierarchy of Node set      
 - Top level (root) nodes are parent Nodes
