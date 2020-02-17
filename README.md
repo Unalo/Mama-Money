@@ -11,7 +11,7 @@
 
 ## Run The App with Maven from the terminal
 - mvn clean
-- 
+- *Still have bugs* :-(
 
 ## Run Test with Maven from the Terminal
 - mvn clean

@@ -2,18 +2,14 @@ package nodesTests;
 
 import nodes.*;
 import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.HashMap;
-import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -42,7 +38,7 @@ public class NodesTest {
         addingNodes.addNodes(nodeE);
         addingNodes.addNodes(nodeF);
         addingNodes.addNodes(nodeG);
-        assertEquals(addingNodes.nodeList.toString(), "[CreatingNodes{identity=700, parentIdentity=0, modeLabel='nodeA', childNodes=[]}, CreatingNodes{identity=70, parentIdentity=7000, modeLabel='nodeB', childNodes=[]}, CreatingNodes{identity=9, parentIdentity=123, modeLabel='nodes.NodeC', childNodes=[]}, CreatingNodes{identity=12, parentIdentity=7000, modeLabel='nodes.NodeD', childNodes=[]}, CreatingNodes{identity=25, parentIdentity=7000, modeLabel='NOdeE', childNodes=[]}, CreatingNodes{identity=3, parentIdentity=0, modeLabel='nodes.NodeF', childNodes=[]}, CreatingNodes{identity=10, parentIdentity=3, modeLabel='nodes.NodeG', childNodes=[]}]");
+        assertEquals(addingNodes.nodeList.toString(), "[node { identity: 700, parentIdentity 0, modeLabel 'nodeA', childNodes [] }, node { identity: 70, parentIdentity 7000, modeLabel 'nodeB', childNodes [] }, node { identity: 9, parentIdentity 123, modeLabel 'nodes.NodeC', childNodes [] }, node { identity: 12, parentIdentity 7000, modeLabel 'nodes.NodeD', childNodes [] }, node { identity: 25, parentIdentity 7000, modeLabel 'NOdeE', childNodes [] }, node { identity: 3, parentIdentity 0, modeLabel 'nodes.NodeF', childNodes [] }, node { identity: 10, parentIdentity 3, modeLabel 'nodes.NodeG', childNodes [] }]");
     }
 
     @Test
@@ -104,7 +100,6 @@ public class NodesTest {
         addingNodes.addNodes(nodeA);
         addingNodes.addNodes(nodeE);
         addingNodes.addNodes(nodeF);
-        //AddingNodes.sortingList();
 
         assertEquals(addingNodes.getParentNodes().toString(), "[node { identity: 7000, parentIdentity 0, modeLabel 'nodeA', childNodes [] }, node { identity: 800, parentIdentity 0, modeLabel 'nodeE', childNodes [] }]");
     }
@@ -126,7 +121,7 @@ public class NodesTest {
         addingNodes.addNodes(nodeE);
         addingNodes.addNodes(nodeF);
 
-        assertEquals(addingNodes.getChildNodes().toString(), "[CreatingNodes{identity=7, parentIdentity=7000, modeLabel='nodeB', childNodes=[]}, CreatingNodes{identity=45, parentIdentity=123, modeLabel='nodes.NodeC', childNodes=[]}, CreatingNodes{identity=12, parentIdentity=7000, modeLabel='nodeD', childNodes=[]}, CreatingNodes{identity=70, parentIdentity=12, modeLabel='nodeF', childNodes=[]}]");
+        assertEquals(addingNodes.getChildNodes().toString(), "[node { identity: 7, parentIdentity 7000, modeLabel 'nodeB', childNodes [] }, node { identity: 45, parentIdentity 123, modeLabel 'nodes.NodeC', childNodes [] }, node { identity: 12, parentIdentity 7000, modeLabel 'nodeD', childNodes [] }, node { identity: 70, parentIdentity 12, modeLabel 'nodeF', childNodes [] }]");
     }
 
     @Test
@@ -149,40 +144,41 @@ public class NodesTest {
         addingNodes.getParentNodes();
         addingNodes.getChildNodes();
         for (CreatingNode node: addingNodes.mappingNodes()){
-            System.out.println(node);
+            System.out.println(node.getIdentity());
+            System.out.println(node.getModeLabel());
+            System.out.println("phakathi");
         }
-        assertEquals(addingNodes.mappingNodes(), "[node { identity: 7000, parentIdentity 0, modeLabel 'nodeA', childNodes [node { identity: 7, parentIdentity 7000, modeLabel 'nodeB', childNodes [] }, node { identity: 12, parentIdentity 7000, modeLabel 'nodeD', childNodes [] }, node { identity: 7, parentIdentity 7000, modeLabel 'nodeB', childNodes [] }, node { identity: 12, parentIdentity 7000, modeLabel 'nodeD', childNodes [] }, node { identity: 7, parentIdentity 7000, modeLabel 'nodeB', childNodes [] }, node { identity: 12, parentIdentity 7000, modeLabel 'nodeD', childNodes [] }, node { identity: 7, parentIdentity 7000, modeLabel 'nodeB', childNodes [] }, node { identity: 12, parentIdentity 7000, modeLabel 'nodeD', childNodes [] }] }, node { identity: 800, parentIdentity 0, modeLabel 'nodeE', childNodes [node { identity: 70, parentIdentity 800, modeLabel 'nodeF', childNodes [] }, node { identity: 70, parentIdentity 800, modeLabel 'nodeF', childNodes [] }, node { identity: 70, parentIdentity 800, modeLabel 'nodeF', childNodes [] }, node { identity: 70, parentIdentity 800, modeLabel 'nodeF', childNodes [] }] }]");
+        assertEquals(addingNodes.mappingNodes().toString(), "[node { identity: 7000, parentIdentity 0, modeLabel 'nodeA', childNodes [node { identity: 7, parentIdentity 7000, modeLabel 'nodeB', childNodes [] }, node { identity: 12, parentIdentity 7000, modeLabel 'nodeD', childNodes [] }, node { identity: 7, parentIdentity 7000, modeLabel 'nodeB', childNodes [] }, node { identity: 12, parentIdentity 7000, modeLabel 'nodeD', childNodes [] }, node { identity: 7, parentIdentity 7000, modeLabel 'nodeB', childNodes [] }, node { identity: 12, parentIdentity 7000, modeLabel 'nodeD', childNodes [] }, node { identity: 7, parentIdentity 7000, modeLabel 'nodeB', childNodes [] }, node { identity: 12, parentIdentity 7000, modeLabel 'nodeD', childNodes [] }] }, node { identity: 800, parentIdentity 0, modeLabel 'nodeE', childNodes [node { identity: 70, parentIdentity 800, modeLabel 'nodeF', childNodes [] }, node { identity: 70, parentIdentity 800, modeLabel 'nodeF', childNodes [] }, node { identity: 70, parentIdentity 800, modeLabel 'nodeF', childNodes [] }, node { identity: 70, parentIdentity 800, modeLabel 'nodeF', childNodes [] }] }]");
     }
 
-    @Test
-    public void shouldPrintNodes() {
-
-        Node nodeB = new Node(7, 7000,"nodeB");
-        Node nodeC = new Node(80, 123, "NodeC");
-        Node nodeA = new Node(7000, 0,"nodeA");
-        Node nodeD = new Node(12, 7000,"nodeD");
-        Node nodeE = new Node(800, 0,"nodeE");
-        Node nodeF = new Node(70, 800,"nodeF");
-        AddingNodes addingNodes = new AddingNodes();
-
-        addingNodes.addNodes(nodeB);
-        addingNodes.addNodes(nodeC);
-        addingNodes.addNodes(nodeD);
-        addingNodes.addNodes(nodeA);
-        addingNodes.addNodes(nodeE);
-        addingNodes.addNodes(nodeF);
-        addingNodes.getParentNodes();
-        addingNodes.getChildNodes();
-        for (CreatingNode node: addingNodes.mappingNodes()){
-            System.out.println(node);
-        }
-        assertEquals(addingNodes.printTree(addingNodes.mappingNodes()), "[node { identity: 7000, parentIdentity 0, modeLabel 'nodeA', childNodes [node { identity: 7, parentIdentity 7000, modeLabel 'nodeB', childNodes [] }, node { identity: 12, parentIdentity 7000, modeLabel 'nodeD', childNodes [] }, node { identity: 7, parentIdentity 7000, modeLabel 'nodeB', childNodes [] }, node { identity: 12, parentIdentity 7000, modeLabel 'nodeD', childNodes [] }, node { identity: 7, parentIdentity 7000, modeLabel 'nodeB', childNodes [] }, node { identity: 12, parentIdentity 7000, modeLabel 'nodeD', childNodes [] }, node { identity: 7, parentIdentity 7000, modeLabel 'nodeB', childNodes [] }, node { identity: 12, parentIdentity 7000, modeLabel 'nodeD', childNodes [] }] }, node { identity: 800, parentIdentity 0, modeLabel 'nodeE', childNodes [node { identity: 70, parentIdentity 800, modeLabel 'nodeF', childNodes [] }, node { identity: 70, parentIdentity 800, modeLabel 'nodeF', childNodes [] }, node { identity: 70, parentIdentity 800, modeLabel 'nodeF', childNodes [] }, node { identity: 70, parentIdentity 800, modeLabel 'nodeF', childNodes [] }] }]");
-    }
+//    @Test
+//    public void shouldPrintNodes() {
+//
+//        Node nodeB = new Node(7, 7000,"nodeB");
+//        Node nodeC = new Node(80, 123, "NodeC");
+//        Node nodeA = new Node(7000, 0,"nodeA");
+//        Node nodeD = new Node(12, 7000,"nodeD");
+//        Node nodeE = new Node(800, 0,"nodeE");
+//        Node nodeF = new Node(70, 800,"nodeF");
+//        AddingNodes addingNodes = new AddingNodes();
+//
+//        addingNodes.addNodes(nodeB);
+//        addingNodes.addNodes(nodeC);
+//        addingNodes.addNodes(nodeD);
+//        addingNodes.addNodes(nodeA);
+//        addingNodes.addNodes(nodeE);
+//        addingNodes.addNodes(nodeF);
+//        addingNodes.getParentNodes();
+//        addingNodes.getChildNodes();
+//        for (CreatingNode node: addingNodes.mappingNodes()){
+//            System.out.println(node);
+//        }
+//        assertEquals(addingNodes.printTree(addingNodes.mappingNodes()), "[node { identity: 7000, parentIdentity 0, modeLabel 'nodeA', childNodes [node { identity: 7, parentIdentity 7000, modeLabel 'nodeB', childNodes [] }, node { identity: 12, parentIdentity 7000, modeLabel 'nodeD', childNodes [] }, node { identity: 7, parentIdentity 7000, modeLabel 'nodeB', childNodes [] }, node { identity: 12, parentIdentity 7000, modeLabel 'nodeD', childNodes [] }, node { identity: 7, parentIdentity 7000, modeLabel 'nodeB', childNodes [] }, node { identity: 12, parentIdentity 7000, modeLabel 'nodeD', childNodes [] }, node { identity: 7, parentIdentity 7000, modeLabel 'nodeB', childNodes [] }, node { identity: 12, parentIdentity 7000, modeLabel 'nodeD', childNodes [] }] }, node { identity: 800, parentIdentity 0, modeLabel 'nodeE', childNodes [node { identity: 70, parentIdentity 800, modeLabel 'nodeF', childNodes [] }, node { identity: 70, parentIdentity 800, modeLabel 'nodeF', childNodes [] }, node { identity: 70, parentIdentity 800, modeLabel 'nodeF', childNodes [] }, node { identity: 70, parentIdentity 800, modeLabel 'nodeF', childNodes [] }] }]");
+//    }
 
 
     @Test
     public void shouldBeAbleToWriteToJSONFile() throws IOException {
-
 
         try (FileReader fileReader = new FileReader("NodesTree.json"))
         {
@@ -190,8 +186,6 @@ public class NodesTest {
             AddingNodes addingNodes = new AddingNodes();
             JSONArray jsonArray = new JSONArray();
             PrintWriter pw = new PrintWriter("NodesTree.json");
-//            HashMap<Integer, CreatingNode> mapping = new HashMap<Integer, CreatingNode>();
-
 
             Node nodeA = new Node(700, 0,"nodeA");
             Node nodeB = new Node(70, 7000,"nodeB");
@@ -214,8 +208,6 @@ public class NodesTest {
                 System.out.println(node);
             }
 
-//            Map jsonMap = new HashMap<Integer, CreatingNode>();
-//            jsonMap.put(addingNodes.mappingNodes())
             jsonArray.add(addingNodes.mappingNodes());
 
             pw.write(jsonArray.toJSONString());
@@ -229,12 +221,9 @@ public class NodesTest {
             nodeListArr.forEach(item -> {
                 System.out.println("Phakathi");
                 System.out.println(item);
-
             });
 
-
-            assertEquals(nodeListArr.toString(), "[Nodes{identity=700, parentIdentity=0, modeLabel='nodeA', childNodes=[]}, CreatingNodes{identity=70, parentIdentity=7000, modeLabel='nodeB', childNodes=[]}, CreatingNodes{identity=9, parentIdentity=123, modeLabel='nodes.NodeC', childNodes=[]}, CreatingNodes{identity=12, parentIdentity=7000, modeLabel='nodes.NodeD', childNodes=[]}, CreatingNodes{identity=25, parentIdentity=7000, modeLabel='NOdeE', childNodes=[]}, CreatingNodes{identity=3, parentIdentity=0, modeLabel='nodes.NodeF', childNodes=[]}, CreatingNodes{identity=10, parentIdentity=3, modeLabel='nodes.NodeG', childNodes=[]}]");
-
+            assertEquals(nodeListArr, "[Nodes  {identity=700, parentIdentity=0, modeLabel='nodeA', childNodes=[]}, CreatingNodes{identity=70, parentIdentity=7000, modeLabel='nodeB', childNodes=[]}, CreatingNodes{identity=9, parentIdentity=123, modeLabel='nodes.NodeC', childNodes=[]}, CreatingNodes{identity=12, parentIdentity=7000, modeLabel='nodes.NodeD', childNodes=[]}, CreatingNodes{identity=25, parentIdentity=7000, modeLabel='NOdeE', childNodes=[]}, CreatingNodes{identity=3, parentIdentity=0, modeLabel='nodes.NodeF', childNodes=[]}, CreatingNodes{identity=10, parentIdentity=3, modeLabel='nodes.NodeG', childNodes=[]}]");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException | ParseException e) {

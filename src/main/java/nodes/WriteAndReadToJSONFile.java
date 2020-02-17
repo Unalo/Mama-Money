@@ -38,8 +38,8 @@ public class WriteAndReadToJSONFile {
 
             pw.flush();
             pw.close();
-            Object object = jsonParser.parse(reader);
-            JSONArray jsonArray1 = (JSONArray) object;
+            Object object = jsonParser.parse(String.valueOf(reader.read()));
+            JSONObject jsonArray1 = (JSONObject) object;
             jsonArray.forEach(list -> {
                 System.out.println(list.toString());
             } );

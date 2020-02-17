@@ -60,33 +60,26 @@ public class AddingNodes  {
                         continue;
                 }
             }
-//        System.out.println("count  " + count);
         return parentNodes;
     }
 
     public String printTree(List <CreatingNode> nodes) {
-        for (int i = 0; i <parentNodes.size() ; i++) {
-//            int parentId = parentNodes.get(i).getParentIdentity();
-            int id = parentNodes.get(i).getIdentity();
-            String label = parentNodes.get(i).getModeLabel();
-            System.out.println("label " + label + " | "  );
-            for (int j = 0; j <nodes.size() ; j++) {
-                CreatingNode kid = nodes.get(j);
-                System.out.println(kid.getModeLabel() + " | " + kid.getParentIdentity());
-                if (kid.getParentIdentity() == id) {
-                    System.out.println("phakathi ");
-                    System.out.println(kid.getModeLabel());
-                }
-                for (int k = 0; k < nodes.size(); k++) {
-                    CreatingNode grandChild = nodes.get(j);
-                    if (grandChild.getParentIdentity() == kid.getIdentity()) {
-                        System.out.println("phakathi ");
-                        System.out.println(grandChild.getModeLabel() + " | " + grandChild.getParentIdentity());
-                    }
-                }
-            }
-        }
-        return nodes.toString();
+      Iterator iterator =  parentNodes.iterator();
+           for (int i = 0; i <nodes.size(); i++) {
+               CreatingNode node = nodes.get(i);
+               System.out.println( node.getModeLabel() + " | " + node.getParentIdentity());
+               for (int j = 0; j < parentNodes.size() ; j++) {
+                   CreatingNode node1 = parentNodes.get(j);
+                   if (node1.getIdentity() == node.getParentIdentity()) {
+                       System.out.println( node1.getModeLabel() + " | " + node1.getParentIdentity());
+                   }
+                   System.out.println(node1.getParentIdentity());
+                   for (int k = 0; k < nodes.size() ; k++) {
+                       CreatingNode node2 = nodes.get(i);
+                       System.out.println( node2.getModeLabel() + " | " + node2.getParentIdentity());
+                   }
+               }
+           }
+        return parentNodes.toString();
     }
-
 }
