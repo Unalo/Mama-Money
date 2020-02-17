@@ -215,18 +215,10 @@ public class NodesTest {
             pw.flush();
             pw.close();
 
-            Object object = jsonParser.parse(fileReader);
-            System.out.println("--------------------------------" + object.toString());
-            JSONArray nodeListArr = (JSONArray) object;
-            nodeListArr.forEach(item -> {
-                System.out.println("Phakathi");
-                System.out.println(item);
-            });
-
-            assertEquals(nodeListArr, "[Nodes  {identity=700, parentIdentity=0, modeLabel='nodeA', childNodes=[]}, CreatingNodes{identity=70, parentIdentity=7000, modeLabel='nodeB', childNodes=[]}, CreatingNodes{identity=9, parentIdentity=123, modeLabel='nodes.NodeC', childNodes=[]}, CreatingNodes{identity=12, parentIdentity=7000, modeLabel='nodes.NodeD', childNodes=[]}, CreatingNodes{identity=25, parentIdentity=7000, modeLabel='NOdeE', childNodes=[]}, CreatingNodes{identity=3, parentIdentity=0, modeLabel='nodes.NodeF', childNodes=[]}, CreatingNodes{identity=10, parentIdentity=3, modeLabel='nodes.NodeG', childNodes=[]}]");
+            assertEquals(fileReader.ready(), true);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        } catch (IOException | ParseException e) {
+        } catch (IOException  e) {
             e.printStackTrace();
         }
     }
