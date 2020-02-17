@@ -48,10 +48,7 @@ public class AddingNodes  {
         while (count < childNodes.size()) {
                 for (int j = 0; j < childNodes.size(); j++) {
                     CreatingNode currentChildNode = childNodes.get(j);
-                    // boolean val = parentNode.getIdentity() == currentChildNode.getParentIdentity();
                     CreatingNode parentNode = mapping.get(currentChildNode.getParentIdentity());
-//                    System.out.println(mapping.get(currentChildNode.getIdentity()));
-//                    System.out.println(val + " i: " + i + " => " + parentNode.getIdentity() + " | " + currentChildNode.getParentIdentity());
                     if (parentNode != null) {
                         parentNode.addChild(currentChildNode);
                         mapping.put(currentChildNode.getIdentity(), currentChildNode);

@@ -3,7 +3,7 @@ package nodes;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CreatingNode implements Comparable <CreatingNode>{
+public class CreatingNode {
 
     private int identity;
     private int parentIdentity;
@@ -37,15 +37,6 @@ public class CreatingNode implements Comparable <CreatingNode>{
                 ", modeLabel '" + modeLabel + '\'' +
                 ", childNodes " + childNodes +
                 " }";
-    }
-
-    @Override
-    public int compareTo(CreatingNode o) {
-        if (this.getParentIdentity() == o.getIdentity()) {
-            System.out.println();
-            return o.getIdentity() - this.getParentIdentity();
-        }
-      return this.modeLabel.compareTo(o.getModeLabel());
     }
 
     public void addChild(CreatingNode currentChildNode) {
