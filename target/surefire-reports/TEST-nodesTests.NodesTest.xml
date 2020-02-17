@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="nodesTests.NodesTest" time="0.145" tests="9" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="nodesTests.NodesTest" time="0.112" tests="8" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="gnome"/>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="ZA"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-11-openjdk-amd64/lib"/>
-    <property name="sun.java.command" value="/home/unalo/Documents/projects/Mama Money Coding Test/target/surefire/surefirebooter426133660738369656.jar /home/unalo/Documents/projects/Mama Money Coding Test/target/surefire 2020-02-17T12-18-55_658-jvmRun1 surefire12322705916516592838tmp surefire_01032899783215942671tmp"/>
+    <property name="sun.java.command" value="/home/unalo/Documents/projects/Mama Money Coding Test/target/surefire/surefirebooter881394198721459607.jar /home/unalo/Documents/projects/Mama Money Coding Test/target/surefire 2020-02-17T14-47-48_844-jvmRun1 surefire4477802226867294167tmp surefire_012165633394677428471tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/home/unalo/Documents/projects/Mama Money Coding Test/target/test-classes:/home/unalo/Documents/projects/Mama Money Coding Test/target/classes:/home/unalo/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.4.0/junit-jupiter-api-5.4.0.jar:/home/unalo/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/home/unalo/.m2/repository/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar:/home/unalo/.m2/repository/org/junit/platform/junit-platform-commons/1.4.0/junit-platform-commons-1.4.0.jar:/home/unalo/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.4.0/junit-jupiter-engine-5.4.0.jar:/home/unalo/.m2/repository/org/junit/platform/junit-platform-engine/1.4.0/junit-platform-engine-1.4.0.jar:/home/unalo/.m2/repository/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar:/home/unalo/.m2/repository/junit/junit/4.10/junit-4.10.jar:/home/unalo/.m2/repository/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -32,7 +32,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/home/unalo/Documents/projects/Mama Money Coding Test/target/surefire/surefirebooter426133660738369656.jar"/>
+    <property name="surefire.real.class.path" value="/home/unalo/Documents/projects/Mama Money Coding Test/target/surefire/surefirebooter881394198721459607.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="11.0.6+10-post-Ubuntu-1ubuntu118.04.1"/>
     <property name="user.name" value="unalo"/>
@@ -57,13 +57,12 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="shouldPrintNodes" classname="nodesTests.NodesTest" time="0.038"/>
-  <testcase name="shouldGetParentIdForNOde" classname="nodesTests.NodesTest" time="0"/>
+  <testcase name="shouldGetParentIdForNOde" classname="nodesTests.NodesTest" time="0.035"/>
   <testcase name="shouldMapNodes" classname="nodesTests.NodesTest" time="0.001"/>
   <testcase name="shouldGetAllParentNodes" classname="nodesTests.NodesTest" time="0"/>
-  <testcase name="shouldGetLabelForNOde" classname="nodesTests.NodesTest" time="0.002"/>
-  <testcase name="shouldAddNodesToList" classname="nodesTests.NodesTest" time="0.003"/>
-  <testcase name="shouldGetIdForNOde" classname="nodesTests.NodesTest" time="0.002"/>
-  <testcase name="shouldGetAllChildNodes" classname="nodesTests.NodesTest" time="0.002"/>
-  <testcase name="shouldBeAbleToWriteToJSONFile" classname="nodesTests.NodesTest" time="0.048"/>
+  <testcase name="shouldGetLabelForNOde" classname="nodesTests.NodesTest" time="0"/>
+  <testcase name="shouldAddNodesToList" classname="nodesTests.NodesTest" time="0"/>
+  <testcase name="shouldGetIdForNOde" classname="nodesTests.NodesTest" time="0.001"/>
+  <testcase name="shouldGetAllChildNodes" classname="nodesTests.NodesTest" time="0.001"/>
+  <testcase name="shouldBeAbleToWriteToJSONFile" classname="nodesTests.NodesTest" time="0.038"/>
 </testsuite>
