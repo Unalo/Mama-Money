@@ -151,30 +151,30 @@ public class NodesTest {
         assertEquals(addingNodes.mappingNodes().toString(), "[node { identity: 7000, parentIdentity 0, modeLabel 'nodeA', childNodes [node { identity: 7, parentIdentity 7000, modeLabel 'nodeB', childNodes [] }, node { identity: 12, parentIdentity 7000, modeLabel 'nodeD', childNodes [] }, node { identity: 7, parentIdentity 7000, modeLabel 'nodeB', childNodes [] }, node { identity: 12, parentIdentity 7000, modeLabel 'nodeD', childNodes [] }, node { identity: 7, parentIdentity 7000, modeLabel 'nodeB', childNodes [] }, node { identity: 12, parentIdentity 7000, modeLabel 'nodeD', childNodes [] }, node { identity: 7, parentIdentity 7000, modeLabel 'nodeB', childNodes [] }, node { identity: 12, parentIdentity 7000, modeLabel 'nodeD', childNodes [] }] }, node { identity: 800, parentIdentity 0, modeLabel 'nodeE', childNodes [node { identity: 70, parentIdentity 800, modeLabel 'nodeF', childNodes [] }, node { identity: 70, parentIdentity 800, modeLabel 'nodeF', childNodes [] }, node { identity: 70, parentIdentity 800, modeLabel 'nodeF', childNodes [] }, node { identity: 70, parentIdentity 800, modeLabel 'nodeF', childNodes [] }] }]");
     }
 
-//    @Test
-//    public void shouldPrintNodes() {
-//
-//        Node nodeB = new Node(7, 7000,"nodeB");
-//        Node nodeC = new Node(80, 123, "NodeC");
-//        Node nodeA = new Node(7000, 0,"nodeA");
-//        Node nodeD = new Node(12, 7000,"nodeD");
-//        Node nodeE = new Node(800, 0,"nodeE");
-//        Node nodeF = new Node(70, 800,"nodeF");
-//        AddingNodes addingNodes = new AddingNodes();
-//
-//        addingNodes.addNodes(nodeB);
-//        addingNodes.addNodes(nodeC);
-//        addingNodes.addNodes(nodeD);
-//        addingNodes.addNodes(nodeA);
-//        addingNodes.addNodes(nodeE);
-//        addingNodes.addNodes(nodeF);
-//        addingNodes.getParentNodes();
-//        addingNodes.getChildNodes();
-//        for (CreatingNode node: addingNodes.mappingNodes()){
-//            System.out.println(node);
-//        }
-//        assertEquals(addingNodes.printTree(addingNodes.mappingNodes()), "[node { identity: 7000, parentIdentity 0, modeLabel 'nodeA', childNodes [node { identity: 7, parentIdentity 7000, modeLabel 'nodeB', childNodes [] }, node { identity: 12, parentIdentity 7000, modeLabel 'nodeD', childNodes [] }, node { identity: 7, parentIdentity 7000, modeLabel 'nodeB', childNodes [] }, node { identity: 12, parentIdentity 7000, modeLabel 'nodeD', childNodes [] }, node { identity: 7, parentIdentity 7000, modeLabel 'nodeB', childNodes [] }, node { identity: 12, parentIdentity 7000, modeLabel 'nodeD', childNodes [] }, node { identity: 7, parentIdentity 7000, modeLabel 'nodeB', childNodes [] }, node { identity: 12, parentIdentity 7000, modeLabel 'nodeD', childNodes [] }] }, node { identity: 800, parentIdentity 0, modeLabel 'nodeE', childNodes [node { identity: 70, parentIdentity 800, modeLabel 'nodeF', childNodes [] }, node { identity: 70, parentIdentity 800, modeLabel 'nodeF', childNodes [] }, node { identity: 70, parentIdentity 800, modeLabel 'nodeF', childNodes [] }, node { identity: 70, parentIdentity 800, modeLabel 'nodeF', childNodes [] }] }]");
-//    }
+   @Test
+   public void shouldPrintNodes() {
+
+       Node nodeB = new Node(7, 7000,"nodeB");
+       Node nodeC = new Node(80, 123, "NodeC");
+       Node nodeA = new Node(7000, 0,"nodeA");
+       Node nodeD = new Node(12, 7000,"nodeD");
+       Node nodeE = new Node(800, 0,"nodeE");
+       Node nodeF = new Node(70, 800,"nodeF");
+       AddingNodes addingNodes = new AddingNodes();
+
+       addingNodes.addNodes(nodeB);
+       addingNodes.addNodes(nodeC);
+       addingNodes.addNodes(nodeD);
+       addingNodes.addNodes(nodeA);
+       addingNodes.addNodes(nodeE);
+       addingNodes.addNodes(nodeF);
+       addingNodes.getParentNodes();
+       addingNodes.getChildNodes();
+       for (CreatingNode node: addingNodes.mappingNodes()){
+           System.out.println(node);
+       }
+       assertEquals(addingNodes.printTree(addingNodes.mappingNodes()), "[node { identity: 7000, parentIdentity 0, modeLabel 'nodeA', childNodes [node { identity: 7, parentIdentity 7000, modeLabel 'nodeB', childNodes [] }, node { identity: 12, parentIdentity 7000, modeLabel 'nodeD', childNodes [] }, node { identity: 7, parentIdentity 7000, modeLabel 'nodeB', childNodes [] }, node { identity: 12, parentIdentity 7000, modeLabel 'nodeD', childNodes [] }, node { identity: 7, parentIdentity 7000, modeLabel 'nodeB', childNodes [] }, node { identity: 12, parentIdentity 7000, modeLabel 'nodeD', childNodes [] }, node { identity: 7, parentIdentity 7000, modeLabel 'nodeB', childNodes [] }, node { identity: 12, parentIdentity 7000, modeLabel 'nodeD', childNodes [] }] }, node { identity: 800, parentIdentity 0, modeLabel 'nodeE', childNodes [node { identity: 70, parentIdentity 800, modeLabel 'nodeF', childNodes [] }, node { identity: 70, parentIdentity 800, modeLabel 'nodeF', childNodes [] }, node { identity: 70, parentIdentity 800, modeLabel 'nodeF', childNodes [] }, node { identity: 70, parentIdentity 800, modeLabel 'nodeF', childNodes [] }] }]");
+   }
 
 
     @Test

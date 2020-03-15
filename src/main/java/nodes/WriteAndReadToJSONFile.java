@@ -11,19 +11,19 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 public class WriteAndReadToJSONFile {
-    public static void main(String[] args) {
-        JSONParser jsonParser = new JSONParser();
+    public static void main(final String[] args) {
+        final JSONParser jsonParser = new JSONParser();
         try (FileReader reader = new FileReader("NodesTree.json"))
         {
-            JSONObject jsonObject = new JSONObject();
-            JSONArray jsonArray = new JSONArray();
-            Node nodeB = new Node(7, 7000,"nodeB");
-            Node nodeC = new Node(80, 123, "NodeC");
-            Node nodeA = new Node(7000, 0,"nodeA");
-            Node nodeD = new Node(12, 7000,"nodeD");
-            Node nodeE = new Node(800, 0,"nodeE");
-            Node nodeF = new Node(70, 800,"nodeF");
-            AddingNodes addingNodes = new AddingNodes();
+            final JSONObject jsonObject = new JSONObject();
+            final JSONArray jsonArray = new JSONArray();
+            final Node nodeB = new Node(7, 7000,"nodeB");
+            final Node nodeC = new Node(80, 123, "NodeC");
+            final Node nodeA = new Node(7000, 0,"nodeA");
+            final Node nodeD = new Node(12, 7000,"nodeD");
+            final Node nodeE = new Node(800, 0,"nodeE");
+            final Node nodeF = new Node(70, 800,"nodeF");
+            final AddingNodes addingNodes = new AddingNodes();
 
             addingNodes.addNodes(nodeB);
             addingNodes.addNodes(nodeC);
@@ -33,17 +33,17 @@ public class WriteAndReadToJSONFile {
             addingNodes.addNodes(nodeF);
 
             jsonArray.add(addingNodes.nodeList);
-            PrintWriter pw = new PrintWriter("NodesTree.json");
+            final PrintWriter pw = new PrintWriter("NodesTree.json");
             pw.write(jsonArray.toJSONString());
 
             pw.flush();
             pw.close();
-            Object object = jsonParser.parse(String.valueOf(reader.read()));
-            JSONObject jsonArray1 = (JSONObject) object;
+            final Object object = jsonParser.parse(String.valueOf(reader.read()));
+            final JSONObject jsonArray1 = (JSONObject) object;
             jsonArray.forEach(list -> {
                 System.out.println(list.toString());
             } );
-        } catch (FileNotFoundException e) {
+        } catch (final FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException | ParseException e) {
             e.printStackTrace();
